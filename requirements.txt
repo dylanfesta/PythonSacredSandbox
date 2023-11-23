@@ -1,0 +1,12 @@
+colorama==0.4.6
+docopt==0.6.2
+gitdb==4.0.11
+GitPython==3.1.40
+jsonpickle==3.0.2
+munch==4.0.0
+numpy==1.26.2
+packaging==23.2
+py-cpuinfo==9.0.0
+sacred==0.8.5
+smmap==5.0.1
+wrapt==1.16.0
