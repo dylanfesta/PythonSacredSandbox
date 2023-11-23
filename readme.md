@@ -18,7 +18,7 @@ Then install stuff (just the essential for this demo)
 ```
 pip install numpy sacred
 ```
-(here you can insall anything you need)
+(here you can install anything you need)
 
 
 To store this virtual environment, run
