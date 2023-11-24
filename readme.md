@@ -7,7 +7,7 @@ Imagine the following situation: you are running long simulations, regulated by 
 
 You want to run parallel simulations and keep track of time, outcomes, the parameters used, storing the big data produced in a folder of your choice, etc etc.
 
-This repository contains an example based on Python and on the toolbox Sacred that shows how to do just that.
+This repository contains an example based on Python and on the [toolbox Sacred](https://sacred.readthedocs.io/en/stable/index.html) that shows how to do just that.
 
 ## Creating and restoring a new virtual environment
 
