@@ -57,7 +57,7 @@ def run(parameter_1, parameter_2, parameter_3, parameter_4_idx,
           label,notes,withbugs,_seed,_run):
   # the last parameter is picked from a fixed list of values
   parameter_4_vec = np.linspace(-3,3,10)
-  parmeter_4 = parameter_4_vec[parameter_4_idx]
+  parameter_4 = parameter_4_vec[parameter_4_idx]
   print('parameter_1 = ', parameter_1)
   print('parameter_2 = ', parameter_2)
   print('parameter_3 = ', parameter_3)
@@ -82,21 +82,24 @@ def run(parameter_1, parameter_2, parameter_3, parameter_4_idx,
                 'data_stuff3':data_stuff3,
                 'my_score':my_score,
                 'great_success':great_success}
-  # save it in a pickle file
-  # to avoid clashes, add random string to it
+  # now I save it in a pickle file
+  # note that here one could also use HDF5 files, or other formats
+  # to avoid clashes between parallel runs,
+  # I add a random string to its name
   random_string = ''.join(random.choices(string.ascii_letters + string.digits, k=5))
   filename = 'binary_storage_'+label+random_string+'.pkl'
   with open(filename,'wb') as f:
     pickle.dump(dict_save,f)
   print('Results stored in ',filename)
-  # now, you can keep the file, or just store it internally, through the observer
+  # the file is stored "internally" through the observer
   _run.add_artifact(filename)
   # since the observer has it, I can delete the local copy
   os.remove(filename)
   # I can also store stuff like this
   _run.info['my_notes'] = notes + ' -  success: ' + str(great_success)
-  # the returned values are also stored 
-  # ... but keep them small! Vectors etc all go in the artifacts
+  _run.info['some_value'] = 1000.0 + parameter_4
+  #  values returned by the function are also stored ! 
+  # ... but keep them small! Big vectors etc all go in the artifacts
   return my_score,great_success
 
 
